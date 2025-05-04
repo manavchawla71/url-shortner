@@ -12,13 +12,10 @@ app.use(express.json());
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    "mongodb+srv://chawlamanav428:k6ffELIOrbrO6CSq@cluster0.eykup4o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGOURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
