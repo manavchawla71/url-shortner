@@ -24,7 +24,10 @@ const HomePage = () => {
 
   const handleGenerate = () => {
     axios
-      .post("http://localhost:3000/shorten", { enteredurl, code })
+      .post("https://url-shortner-1-vxhw.onrender.com/shorten", {
+        enteredurl,
+        code,
+      })
       .then((response) => {
         setshortenurl(response.data.shortUrl);
         navigate("/shortener", {
