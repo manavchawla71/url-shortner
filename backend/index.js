@@ -19,8 +19,11 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-const baseurl = "http://localhost:3000/"; // Replace with your deployed domain when ready
+const baseurl = "https://url-shortner-1-vxhw.onrender.com/"; // Replace with your deployed domain when ready
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "message recieved from client" });
+});
 // Shorten URL
 app.get("/clicks/:shortcode", async (req, res) => {
   try {
