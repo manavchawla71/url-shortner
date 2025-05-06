@@ -2,10 +2,11 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import { nanoid } from "nanoid";
+import dotenv from "dotenv";
 import Url from "./models/Url.js"; // import your model
 
 const app = express();
-
+dotenv.config();
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -89,6 +90,7 @@ app.get("/:shortcode", async (req, res) => {
 });
 
 // Start server
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
   console.log("Server listening on http://localhost:3000");
 });
