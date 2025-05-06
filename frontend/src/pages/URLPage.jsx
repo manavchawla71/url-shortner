@@ -26,7 +26,7 @@ const URLPage = () => {
     if (shortenurl) {
       const shortcode = shortenurl.split("/").pop();
       axios
-        .get(`https://url-shortner-1-vxhw.onrender.com/clicks/${shortcode}`)
+        .get(`${process.env.REACT_APP_API_BASE_URL}/clicks/${shortcode}`)
         .then((response) => {
           setclicks(response.data.Clicks);
         });

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import dotenv from "dotenv";
 import { useNavigate } from "react-router-dom";
 import Theme from "./../components/Theme";
 
@@ -9,7 +10,7 @@ const HomePage = () => {
   const [isdark, setisDark] = useState(false);
   const [code, setcode] = useState("");
   const navigate = useNavigate();
-
+  dotenv.config();
   const handleTheme = () => {
     const newTheme = !isdark;
     setisDark(newTheme);
@@ -24,7 +25,7 @@ const HomePage = () => {
 
   const handleGenerate = () => {
     axios
-      .post("https://url-shortner-1-vxhw.onrender.com/shorten", {
+      .post(`${process.env.REACT_APP_API_BASE_URL}/shorten`, {
         enteredurl,
         code,
       })
