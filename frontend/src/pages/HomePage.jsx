@@ -23,8 +23,10 @@ const HomePage = () => {
   }, []);
 
   const handleGenerate = () => {
+    console.log("enviornment variable", import.meta.env.VITE_API_BASE_URL);
+    axios;
     axios
-      .post(`${process.env.REACT_APP_API_BASE_URL}/shorten`, {
+      .post(`${import.meta.env.VITE_API_BASE_URL}/shorten`, {
         enteredurl,
         code,
       })

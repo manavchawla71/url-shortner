@@ -26,8 +26,9 @@ const URLPage = () => {
     if (shortenurl) {
       const shortcode = shortenurl.split("/").pop();
       axios
-        .get(`${process.env.REACT_APP_API_BASE_URL}/clicks/${shortcode}`)
+        .get(`${import.meta.env.VITE_API_BASE_URL}/clicks/${shortcode}`)
         .then((response) => {
+          console.log(response);
           setclicks(response.data.Clicks);
         });
     }
