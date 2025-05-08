@@ -72,6 +72,10 @@ app.post("/shorten", async (req, res) => {
 
 // Redirect using shortcode
 app.get("/:shortcode", async (req, res) => {
+  console.log("=== Link Hit ===");
+  console.log("Time:", new Date().toISOString());
+  console.log("User-Agent:", req.headers["user-agent"]);
+  console.log("IP:", req.ip);
   try {
     const url = await Url.findOne({ shortCode: req.params.shortcode });
 
