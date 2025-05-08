@@ -43,7 +43,10 @@ app.get("/clicks/:shortcode", async (req, res) => {
 
 app.post("/shorten", async (req, res) => {
   const { enteredurl, code } = req.body;
-
+  console.log("=== Link Hit ===");
+  console.log("Time:", new Date().toISOString());
+  console.log("User-Agent:", req.headers["user-agent"]);
+  console.log("IP:", req.ip);
   if (!enteredurl) {
     return res.status(400).json({ error: "URL is required" });
   }
